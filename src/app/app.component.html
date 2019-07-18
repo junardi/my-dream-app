@@ -1,20 +1,87 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container">
+  <div class="row">  
+    <div class="col-12">
+      <div>
+        <p><b>Square root of 25 is: {{25 | sqrtPipe}}</b></p>     
+        <p><b>Square root of 729 is: {{729 | sqrtPipe}}</b></p>  
+      </div>
 
+      <p>Today's date is {{ todayDate | date: 'd/M/y' }} </p>  
+      <p>{{ serviceCreated }}</p>   
+
+      <div>
+        <p>Below are the list of users.</p>
+        <input type="text" [(ngModel)]="searchText">
+        <ul>
+          <li *ngFor="let user of users | filter:searchText">
+            {{ user.name }}
+          </li>
+        </ul>  
+      </div>
+
+      <br>   
+      <br>
+      <br>
+        <a routerLink="/">Home</a> &nbsp;&nbsp;<a routerLink="new-cmp">New Component</a> 
+      <br> 
+      <br>
+
+      <router-outlet></router-outlet>  
+
+      <!-- <div style="text-align:center">
+        <h1 appChangeText>Welcome to {{ title | lowercase }}!</h1>
+      </div>      
+
+      <div>
+        Months:
+        <select (change)="changeMonths($event)" >
+          <option *ngFor="let i of months">{{i}}</option>
+        </select>
+      </div>  
+      <br> 
+      <div>
+        <span *ngIf="isAvailable; then condition1 else condition2">The condition is valid.</span> 
+        <ng-template #condition1><h1>The condition is valid</h1></ng-template>     
+        <ng-template #condition2><h1>The condition is invalid</h1></ng-template>      
+      </div>  
+      <div>
+        <button (click)="myClickFunction($event)">Click Me</button>
+      </div>   
+
+      <br>   
+
+      <div style = "width:100%;">  
+
+        <div style = "width:40%;float:left; padding: 20px;">
+          <h1>Uppercase Pipe</h1>
+          <b>{{title | uppercase}}</b><br/>
+          <h1>Lowercase Pipe</h1>
+          <b>{{title | lowercase}}</b>
+          <h1>Currency Pipe</h1>
+          <b>{{6589.23 | currency:"USD"}}</b><br/>
+          <b>{{6589.23 | currency:"USD":true}}</b> //Boolean true is used to get the sign of the currency.
+          <h1>Date pipe</h1>
+          <b>{{todayDate | date:'d/M/y'}}</b><br/>
+          <b>{{todayDate | date:'shortTime'}}</b>
+          <h1>Decimal Pipe</h1>
+          <b>{{ 454.78787814 | number: '3.4-4' }}</b> // 3 is for main integer, 4 -4 are for integers to be displayed.
+        </div>  
+
+        <div style = "width:40%;float:left; padding: 20px;">
+          <h1>Json Pipe</h1>
+          <b>{{ jsonval | json }}</b>
+          <h1>Percent Pipe</h1>
+          <b>{{00.54565 | percent}}</b>
+          <h1>Slice Pipe</h1>
+          <b>{{months | slice:0:4}}</b> 
+          // here 2 and 6 refers to the start and the end index
+        </div>  
+
+      </div> -->
+
+      <!-- <app-new-cmp></app-new-cmp> -->      
+    </div>
+
+  </div> <!-- end container -->  
+
+</div>
